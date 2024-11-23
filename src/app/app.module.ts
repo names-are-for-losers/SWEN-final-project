@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Added ReactiveFormsModule
-import { HttpClientModule } from '@angular/common/http'; // Added HttpClientModule
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { EventPageComponent } from './event-page/event-page.component';
 import { BookingPageComponent } from './booking-page/booking-page.component';
 import { AppointmentPageComponent } from './appointment-page/appointment-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { LoginPageComponent } from './login-page/login-page.component'; // Added LoginPageComponent
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +27,10 @@ import { LoginPageComponent } from './login-page/login-page.component'; // Added
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule, // Add this for Reactive Forms
-    HttpClientModule // Add this for making HTTP requests
+    ReactiveFormsModule // Add this for Reactive Forms
   ],
   providers: [
+    provideHttpClient(withFetch()), // Enable fetch APIs for SSR compatibility
     provideClientHydration()
   ],
   bootstrap: [AppComponent]

@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { SignupPageComponent } from './signup-page.component';
-import { AuthService } from '../login-page/auth.service';
+import { AuthService } from './auth.service';// Corrected path for AuthService
 import { of, throwError } from 'rxjs';
 
 describe('SignupPageComponent', () => {
@@ -15,6 +15,7 @@ describe('SignupPageComponent', () => {
       declarations: [SignupPageComponent],
       imports: [ReactiveFormsModule, HttpClientTestingModule],
       providers: [AuthService],
+    
     }).compileComponents();
 
     fixture = TestBed.createComponent(SignupPageComponent);
@@ -28,7 +29,7 @@ describe('SignupPageComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have a valid form initially', () => {
+  it('should have an invalid form initially', () => {
     expect(component.signupForm.valid).toBeFalse();
   });
 
@@ -55,5 +56,43 @@ describe('SignupPageComponent', () => {
     component.onSignup();
 
     expect(signupSpy).toHaveBeenCalled();
+    expect(component.errorMessage).toBe('Signup failed: Signup failed');
+  });
+
+  it('should set loading to true when submitting', () => {
+    spyOn(authService, 'signup').and.returnValue(of({ message: 'Signup successful!' }));
+    component.signupForm.setValue({
+      email: 'test@example.com',
+      password: 'password123',
+    });
+
+    component.onSignup();
+    expect(component.loading).toBeTrue();
+  });
+
+  it('should set loading to false after successful signup', () => {
+    spyOn(authService, 'signup').and.returnValue(of({ message: 'Signup successful!' }));
+    component.signupForm.setValue({
+      email: 'test@example.com',
+      password: 'password123',
+    });
+
+    component.onSignup();
+    expect(component.loading).toBeFalse();
+  });
+
+  it('should set errorMessage if signup fails', () => {
+    spyOn(authService, 'signup').and.returnValue(
+      throwError(() => ({ error: { message: 'Signup failed' } }))
+    );
+
+    component.signupForm.setValue({
+      email: 'test@example.com',
+      password: 'password123',
+    });
+
+    component.onSignup();
+    expect(component.errorMessage).toBe('Signup failed: Signup failed');
+    expect(component.loading).toBeFalse();
   });
 });

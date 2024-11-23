@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { EventPageComponent } from './event-page.component';
 
 describe('EventPageComponent', () => {
@@ -19,5 +18,10 @@ describe('EventPageComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have events defined', () => {
+    expect(component.events).toBeDefined();
+    expect(component.events.length).toBeGreaterThan(0);
   });
 });

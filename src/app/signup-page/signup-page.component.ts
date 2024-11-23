@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../login-page/auth.service';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-signup-page',
@@ -10,6 +10,8 @@ import { AuthService } from '../login-page/auth.service';
 })
 export class SignupPageComponent {
   signupForm: FormGroup;
+  loading: boolean = false;
+  errorMessage: string | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -24,14 +26,18 @@ export class SignupPageComponent {
 
   onSignup() {
     if (this.signupForm.valid) {
+      this.loading = true;
       const { email, password } = this.signupForm.value;
+
       this.authService.signup(email, password).subscribe({
         next: () => {
-          alert('Signup successful! Redirecting to home page...');
-          this.router.navigate(['/home-page']); // Redirect to Home Page
+          alert('Signup successful! Redirecting to login page...');
+          this.loading = false;
+          this.router.navigate(['/login-page']);
         },
-        error: (err) => {
-          alert('Signup failed: ' + err.error.message);
+        error: (err: any) => {
+          this.loading = false;
+          this.errorMessage = 'Signup failed: ' + (err.error?.message || 'An unknown error occurred.');
         },
       });
     }

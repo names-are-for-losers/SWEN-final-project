@@ -10,6 +10,8 @@ import { AuthService } from './auth.service';
 })
 export class LoginPageComponent {
   loginForm: FormGroup;
+  loading: boolean = false;
+  errorMessage: string | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -24,14 +26,20 @@ export class LoginPageComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
+      this.loading = true; // Set loading to true to disable the form while submitting
+      this.errorMessage = null; // Reset any previous error message
+
       const { email, password } = this.loginForm.value;
+
       this.authService.login(email, password).subscribe({
         next: () => {
           alert('Login successful! Redirecting to home page...');
+          this.loading = false; // Reset loading
           this.router.navigate(['/home-page']); // Redirect to Home Page
         },
         error: (err) => {
-          alert('Login failed: ' + err.error.message);
+          this.loading = false; // Reset loading
+          this.errorMessage = err.error.message || 'Login failed. Please try again.';
         },
       });
     }
