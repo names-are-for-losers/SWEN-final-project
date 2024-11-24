@@ -1,16 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 
 // Create Express app
 const app = express();
 
 // Middleware
-app.use(cors());
-app.use(bodyParser.json());
+app.use(cors({
+  origin: '*', // Allows all origins. For production, replace '*' with your frontend URL (e.g., 'http://localhost:4200').
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+app.use(express.json()); // Middleware to parse JSON bodies
 
 // MongoDB connection
 mongoose.connect('mongodb://127.0.0.1:27017/my_database', {
@@ -30,14 +32,17 @@ const User = mongoose.model('User', UserSchema);
 
 // Register route
 app.post('/register', async (req, res) => {
+  console.log('Request received:', req.body); // Debugging line
   const { email, password } = req.body;
 
   try {
+    // Check if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: 'User already exists' });
     }
 
+    // Hash password and save new user
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({ email, password: hashedPassword });
     await newUser.save();
@@ -49,7 +54,7 @@ app.post('/register', async (req, res) => {
   }
 });
 
-// Login route
+// Login route (optional if not yet implemented)
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
