@@ -6,6 +6,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { EventPageComponent } from './event-page/event-page.component';
 import { BookingPageComponent } from './booking-page/booking-page.component';
 import { AppointmentPageComponent } from './appointment-page/appointment-page.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component'; // Import the Welcome Page
 
 const routes: Routes = [
   { path: '', redirectTo: '/home-page', pathMatch: 'full' }, // Default route now points to Home Page
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'event-page', component: EventPageComponent },
   { path: 'booking-page', component: BookingPageComponent },
   { path: 'appointment-page', component: AppointmentPageComponent },
+  { path: 'welcome-page', component: WelcomePageComponent }, // Add Welcome Page route
   { path: '**', redirectTo: '/home-page' }, // Wildcard route redirects to Home Page
 ];
 

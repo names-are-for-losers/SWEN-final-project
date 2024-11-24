@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http'; // Add this
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { AppointmentPageComponent } from './appointment-page/appointment-page.co
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +23,15 @@ import { LoginPageComponent } from './login-page/login-page.component';
     AppointmentPageComponent,
     SignupPageComponent,
     HomePageComponent,
-    LoginPageComponent // Ensure LoginPageComponent is declared here
+    LoginPageComponent,
+    WelcomePageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule // Add this for Reactive Forms
+    ReactiveFormsModule,
+    HttpClientModule // Ensure this is added for HttpClient to work
   ],
   providers: [
     provideHttpClient(withFetch()), // Enable fetch APIs for SSR compatibility
@@ -35,4 +39,4 @@ import { LoginPageComponent } from './login-page/login-page.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

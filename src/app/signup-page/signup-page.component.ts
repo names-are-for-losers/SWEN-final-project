@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from './auth.service';
+import { AuthService } from '../signup-page/auth.service';
 
 @Component({
   selector: 'app-signup-page',
@@ -10,36 +9,40 @@ import { AuthService } from './auth.service';
 })
 export class SignupPageComponent {
   signupForm: FormGroup;
-  loading: boolean = false;
-  errorMessage: string | null = null;
+  isSubmitting = false;
+  errorMessage = '';
 
-  constructor(
-    private fb: FormBuilder,
-    private authService: AuthService,
-    private router: Router
-  ) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
     this.signupForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
-  onSignup() {
-    if (this.signupForm.valid) {
-      this.loading = true;
-      const { email, password } = this.signupForm.value;
-
-      this.authService.signup(email, password).subscribe({
-        next: () => {
-          alert('Signup successful! Redirecting to login page...');
-          this.loading = false;
-          this.router.navigate(['/login-page']);
-        },
-        error: (err: any) => {
-          this.loading = false;
-          this.errorMessage = 'Signup failed: ' + (err.error?.message || 'An unknown error occurred.');
-        },
-      });
+  /**
+   * Handles form submission for user signup.
+   */
+  onSubmit(): void {
+    this.errorMessage = ''; // Clear previous errors
+    if (this.signupForm.invalid) {
+      return; // Do nothing if the form is invalid
     }
+
+    this.isSubmitting = true; // Start the loading state
+
+    const { name, email, password } = this.signupForm.value; // Extract form values
+
+    this.authService.signup(name, email, password).subscribe({
+      next: (response) => {
+        alert(response.message); // Show success message
+        this.isSubmitting = false; // Stop the loading state
+        this.signupForm.reset(); // Reset the form
+      },
+      error: (err) => {
+        this.errorMessage = err.error?.message || 'Signup failed. Please try again.';
+        this.isSubmitting = false; // Stop the loading state
+      },
+    });
   }
 }

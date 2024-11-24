@@ -1,17 +1,16 @@
-<div class="signup-container">
-  <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
-    <h2>Sign Up</h2>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" formControlName="email" placeholder="Enter your email" required />
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" id="password" formControlName="password" placeholder="Enter your password" required />
-    </div>
-    <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
-    <p class="login">
-      Already have an account? <a routerLink="/login-page">Login</a>
-    </p>
-  </form>
-</div>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name</label>
+    <input id="name" formControlName="name" type="text" placeholder="Enter your name" />
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input id="email" formControlName="email" type="email" placeholder="Enter your email" />
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input id="password" formControlName="password" type="password" placeholder="Enter your password" />
+  </div>
+  <button type="submit" [disabled]="isSubmitting || signupForm.invalid">Sign Up</button>
+</form>
+<div *ngIf="errorMessage">{{ errorMessage }}</div>
