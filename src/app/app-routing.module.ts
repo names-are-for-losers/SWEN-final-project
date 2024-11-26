@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { SignupPageComponent } from './signup-page/signup-page.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { EventPageComponent } from './event-page/event-page.component';
-import { BookingPageComponent } from './booking-page/booking-page.component';
-import { AppointmentPageComponent } from './appointment-page/appointment-page.component';
-import { WelcomePageComponent } from './welcome-page/welcome-page.component'; // Import the Welcome Page
+import { LoginPageComponent } from './components /login-page/login-page.component';
+import { SignupPageComponent } from './components /signup-page/signup-page.component';
+import { HomePageComponent } from './components /home-page/home-page.component';
+import { EventPageComponent } from './components /event-page/event-page.component';
+import { BookingPageComponent } from './components /booking-page/booking-page.component';
+import { AppointmentPageComponent } from './components /appointment-page/appointment-page.component';
+import { WelcomePageComponent } from './components /welcome-page/welcome-page.component'; // Import the Welcome Page
 
 const routes: Routes = [
   { path: '', redirectTo: '/home-page', pathMatch: 'full' }, // Default route now points to Home Page
