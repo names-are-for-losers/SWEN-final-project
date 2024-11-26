@@ -1,0 +1,41 @@
+<div id="header" style="display: flex; align-items: center; justify-content: space-between; padding: 10px; background-color: #f1f1f1;">
+  <div id="header_logo">
+    <a routerLink="/home-page" aria-label="Go to Home">
+      <span style="font-size: 18px; font-weight: bold;">🏀 Home</span>
+    </a>
+  </div>
+  <div style="flex: 1; text-align: center;">
+    <a routerLink="/login-page"><button style="margin: 0 5px;">Sign up</button></a>
+    <a routerLink="/event-page"><button style="margin: 0 5px;">Events</button></a>
+    <a routerLink="/booking-page"><button style="margin: 0 5px;">Bookings</button></a>
+    <a routerLink="/appointment-page"><button style="margin: 0 5px;">Appointments</button></a>
+  </div>
+  <div id="user_icon">
+    <a routerLink="/user-page" aria-label="Go to User Page">👤</a>
+  </div>
+</div>
+
+<div id="content" style="padding: 20px; text-align: center;">
+  <h1 style="font-size: 24px; margin-bottom: 10px;">Basketball Court Booking</h1>
+  <p style="font-size: 16px; margin-bottom: 20px;">Select a time slot to book your appointment:</p>
+  
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <div *ngFor="let slot of timeSlots" style="margin-bottom: 10px;">
+      <button 
+        [disabled]="slot.booked" 
+        (click)="bookSlot(slot)" 
+        [style.backgroundColor]="slot.booked ? '#cccccc' : '#007bff'" 
+        style="color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+        {{ slot.time }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<footer style="margin-top: 20px; padding: 10px; background-color: #f1f1f1; text-align: center;">
+  <p>
+    &copy; 2023 Ahmed M. Hassan, Zoya Shaikh, Akhmad Masri, & Zeyad Abdalaziz | 
+    SWEN.261.600 - <a href="mailto:amh8077@rit.edu">Email us</a><br>
+    Customer Support UAE <a href="tel:+971526198772">+971-52-619-8772</a>
+  </p>
+</footer>
