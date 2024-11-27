@@ -1,0 +1,14 @@
+#header {
+    width: 100%;
+    margin-bottom: 15px;
+    
+  }  
+
+  #content {
+    padding: 2.5%;
+    font-size: 16px;
+    color: azure;
+    width: 70%;
+    float: left;
+    min-height: 450px;
+  }
