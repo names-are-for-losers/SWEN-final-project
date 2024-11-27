@@ -1,19 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { provideHttpClient, withFetch } from '@angular/common/http';
-import { HttpClientModule } from '@angular/common/http'; // Add this
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { EventPageComponent } from './event-page/event-page.component';
+import { BookingPageComponent } from './booking-page/booking-page.component';
+import { AppointmentPageComponent } from './appointment-page/appointment-page.component';
+import { SignupPageComponent } from './signup-page/signup-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { UserPageComponent } from './user-page/user-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
 
-import { EventPageComponent } from './components /event-page/event-page.component';
-import { BookingPageComponent } from './components /booking-page/booking-page.component';
-import { AppointmentPageComponent } from './components /appointment-page/appointment-page.component';
-import { SignupPageComponent } from './components /signup-page/signup-page.component';
-import { HomePageComponent } from './components /home-page/home-page.component';
-import { LoginPageComponent } from './components /login-page/login-page.component';
-import { WelcomePageComponent } from './components /welcome-page/welcome-page.component';
+const appRoutes: Routes = [
+  { path: '', redirectTo: '/home-page', pathMatch: 'full' },
+  { path: 'login-page', component: LoginPageComponent },
+  { path: 'home-page', component: HomePageComponent },
+  { path: 'event-page', component: EventPageComponent },
+  { path: 'booking-page', component: BookingPageComponent },
+  { path: 'appointment-page', component: AppointmentPageComponent },
+  { path: 'user-page', component: UserPageComponent },
+  { path: 'signup-page', component: SignupPageComponent },
+  { path: '**', redirectTo: '/home-page' }
+];
 
 @NgModule({
   declarations: [
@@ -22,21 +33,21 @@ import { WelcomePageComponent } from './components /welcome-page/welcome-page.co
     BookingPageComponent,
     AppointmentPageComponent,
     SignupPageComponent,
-    HomePageComponent,
     LoginPageComponent,
-    WelcomePageComponent
+    HomePageComponent,
+    UserPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule // Ensure this is added for HttpClient to work
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    provideHttpClient(withFetch()), // Enable fetch APIs for SSR compatibility
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

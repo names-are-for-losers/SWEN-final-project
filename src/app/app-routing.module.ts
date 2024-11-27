@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginPageComponent } from './components /login-page/login-page.component';
-import { SignupPageComponent } from './components /signup-page/signup-page.component';
-import { HomePageComponent } from './components /home-page/home-page.component';
-import { EventPageComponent } from './components /event-page/event-page.component';
-import { BookingPageComponent } from './components /booking-page/booking-page.component';
-import { AppointmentPageComponent } from './components /appointment-page/appointment-page.component';
-import { WelcomePageComponent } from './components /welcome-page/welcome-page.component'; // Import the Welcome Page
+import { LoginPageComponent } from './login-page/login-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { EventPageComponent } from './event-page/event-page.component';
+import { BookingPageComponent } from './booking-page/booking-page.component';
+import { AppointmentPageComponent } from './appointment-page/appointment-page.component';
+import { SignupPageComponent } from './signup-page/signup-page.component';
+import { UserPageComponent } from './user-page/user-page.component';
+import { AuthGuard } from './auth.guard'; // Correct import path
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home-page', pathMatch: 'full' }, // Default route now points to Home Page
+  { path: '', redirectTo: '/home-page', pathMatch: 'full' },
   { path: 'login-page', component: LoginPageComponent },
+  { path: 'home-page', component: HomePageComponent },
+  { path: 'event-page', component: EventPageComponent, canActivate: [AuthGuard] },
+  { path: 'booking-page', component: BookingPageComponent, canActivate: [AuthGuard] },
+  { path: 'appointment-page', component: AppointmentPageComponent, canActivate: [AuthGuard] },
   { path: 'signup-page', component: SignupPageComponent },
-  { path: 'home-page', component: HomePageComponent }, // Home Page route
-  { path: 'event-page', component: EventPageComponent },
-  { path: 'booking-page', component: BookingPageComponent },
-  { path: 'appointment-page', component: AppointmentPageComponent },
-  { path: 'welcome-page', component: WelcomePageComponent }, // Add Welcome Page route
-  { path: '**', redirectTo: '/home-page' }, // Wildcard route redirects to Home Page
+  { path: '**', redirectTo: '/home-page' },
 ];
 
 @NgModule({

@@ -8,6 +8,14 @@ html {
   width: 100%;
 }
 
+a {
+  color: #4fdfff;
+}
+
+a:hover {
+  color: #b6ffff;
+}
+
 body {
   margin: 0 0 0 0;
   width: 100%;
@@ -24,22 +32,23 @@ body {
 }
 
 .frosted-glass {
-  background-color: #4d359987;
+  background-color: #523aa1a4;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   color: white;
   padding: 20px;
   border-radius: 10px;
   margin: auto;
-  box-shadow: 5px 5px 8px rgba(12, 0, 44, 0.262);
+  box-shadow: 5px 5px 8px #0c002c43;
 }
 
 .frosted-glass-strong {
-  background-color: #3e2c79a9;
+  background-color: #31235ab9;
   -webkit-backdrop-filter: blur(7.5px);
   backdrop-filter: blur(7.5px);
   color: white;
   padding: 5px;
+  padding-top: 0;
   border-radius: 10px;
   margin: auto;
   box-shadow: 5px 5px 8px rgba(12, 0, 44, 0.262);

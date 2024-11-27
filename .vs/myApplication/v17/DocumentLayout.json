@@ -1,0 +1,190 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\.editorconfig||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.editorconfig||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\.hintrc||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.hintrc||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\angular.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:angular.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\tsconfig.spec.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:tsconfig.spec.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\tsconfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:tsconfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\tsconfig.app.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:tsconfig.app.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\server.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:server.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".editorconfig",
+              "DocumentMoniker": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\.editorconfig",
+              "RelativeDocumentMoniker": ".editorconfig",
+              "ToolTip": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\.editorconfig",
+              "RelativeToolTip": ".editorconfig",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-25T20:54:42.741Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG/SURBVDhPrZRNTgIxFMerDIaEhHgU97JxwUKGGaNeQJdyCY0XUBDWGhg4AB\u002BuvQk7OQCRFTP1fXWmMxUMCT94ee177eu/LVQdFK31kTSJ0WgEIa0SMJ2A6QTHcF9iicQqlYpa/6zv2\u002B2HD5nuEkWR/l4udRzHZBtjGzFor1YrPR6P9WKx0MNhpN96vTuZThyLJ1AJLK/iJFFxjBanBsXIozqkWq2qev1c1Wq19063e0ZBwBNP4JaQ6WRC/i8ajQb5wWBAvnxyghpOqQPkC8L5IEEQKjgxaqOTFsCd65tb6nmlkur1\u002BxwXCgX58KfT7QptwvCK52wrSLcJvtUKOABkQ6HFXwbGsmMRBkchzpjNphLZDSrEn5G1qnsp\u002BPEtheloXouRnXDTTjhb5tXmeyg0IgzuliHp\u002By0OANbiOCDXp1IYo3mMUxBT8/mMA/8QhGH6ZzC4Zwi5ZqoQB9M3h62I/\u002B/SAQpniBmtPvdQyGeYUdgyX8pl05eIBSxmTzQYEYbc42AuJQWLGJNQEcrJG4A4BTHneSW2sqfKOyybkxXMPbAvrx3IsyLzkPJFmUcWYtDntjG6lIvnp8cvKXNIlPoFvstpJRlQPIAAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-11-25T20:54:41.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": ".hintrc",
+              "DocumentMoniker": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\.hintrc",
+              "RelativeDocumentMoniker": ".hintrc",
+              "ToolTip": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\.hintrc",
+              "RelativeToolTip": ".hintrc",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-25T20:54:39.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "angular.json",
+              "DocumentMoniker": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\angular.json",
+              "RelativeDocumentMoniker": "angular.json",
+              "ToolTip": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\angular.json",
+              "RelativeToolTip": "angular.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-25T20:54:36.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "package-lock.json",
+              "DocumentMoniker": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\package-lock.json",
+              "RelativeDocumentMoniker": "package-lock.json",
+              "ToolTip": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\package-lock.json",
+              "RelativeToolTip": "package-lock.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-25T20:54:34.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "package.json",
+              "DocumentMoniker": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\package.json",
+              "RelativeDocumentMoniker": "package.json",
+              "ToolTip": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\package.json",
+              "RelativeToolTip": "package.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-25T20:54:27.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "tsconfig.spec.json",
+              "DocumentMoniker": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\tsconfig.spec.json",
+              "RelativeDocumentMoniker": "tsconfig.spec.json",
+              "ToolTip": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\tsconfig.spec.json",
+              "RelativeToolTip": "tsconfig.spec.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-25T20:54:19.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "tsconfig.json",
+              "DocumentMoniker": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\tsconfig.json",
+              "RelativeDocumentMoniker": "tsconfig.json",
+              "ToolTip": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\tsconfig.json",
+              "RelativeToolTip": "tsconfig.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-25T20:54:06.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "tsconfig.app.json",
+              "DocumentMoniker": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\tsconfig.app.json",
+              "RelativeDocumentMoniker": "tsconfig.app.json",
+              "ToolTip": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\tsconfig.app.json",
+              "RelativeToolTip": "tsconfig.app.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-25T20:54:04.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "server.ts",
+              "DocumentMoniker": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\server.ts",
+              "RelativeDocumentMoniker": "server.ts",
+              "ToolTip": "C:\\Users\\slind\\OneDrive\\Documents\\document_stuff\\Personal\\Important_stuff\\Educational_Docs\\RIT_university\\Work\\Year_3\\Intro_to_software_engineering_261_(600)\\file\\myApplication\\server.ts",
+              "RelativeToolTip": "server.ts",
+              "ViewState": "AgIAABUAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-11-25T20:53:51.196Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

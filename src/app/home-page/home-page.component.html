@@ -1,0 +1,74 @@
+<router-outlet>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="Ahmed M. Hassan" content="booking, events, mangos, seats, and appointments">
+  <meta charset="utf-8">
+</head>
+
+<style>
+</style>
+
+<img id="banner" src="banner.png" alt="banner">
+<body>
+  <div class="background">
+    <div id="header" style="display: flex; text-align: center;">
+      <div id="header_logo"><a routerLink="/home-page" aria-label="Go to Home"><img src="favicon.ico" alt="Website icon" width="60px"></a></div>
+      <div style="flex: 15; overflow: hidden;">
+        <a routerLink="/login-page"><button class="sign_up_header_button">Sign up</button></a>
+        <a routerLink="/event-page"><button class="header_button">Events</button></a>
+        <a routerLink = "/booking-page"><button class="header_button">Bookings</button></a>
+        <a routerLink = "/appointment-page"><button class="header_button">Appointments</button></a>
+      </div>
+      <div id="user_icon" style="flex: 1; overflow: hidden;"><a routerLink = "/user-page"><img src="default user icon.png" alt="Website icon" width="60px"></a></div>
+    </div>
+    <div>
+      <div id="side_panel">
+        <div class="frosted-glass-strong side_panel_top">
+          Side panel
+        </div>
+        <div class="frosted-glass side_panel_bottom">
+          Something to be said in the side panel...
+        </div>
+      </div>
+      <div id="content" class="frosted-glass">
+        <a routerLink="/event-page" style="text-decoration: none;">
+          <div class="image-card-holder">
+            <div class="image-card" style="background-image: url('event_banner0.png')">
+              <div class="card-content">
+                <h2>Event 1</h2>
+                <p>Description of the currently running event.</p>
+              </div>
+            </div>
+            <div class="image-card" style="background-image: url('event_banner1.png')">
+                <div class="card-content">
+                    <h2>Event 2</h2>
+                    <p>Description of the currently running event.</p>
+                </div>
+            </div>
+            <div class="image-card" style="background-image: url('event_banner2.png')">
+                <div class="card-content">
+                    <h2>Event 3</h2>
+                    <p>Description of the currently running event.</p>
+                </div>
+            </div>
+            <div class="image-card" style="background-image: url('event_banner3.png')">
+                <div class="card-content">
+                    <h2>Event 4</h2>
+                    <p>Description of the currently running event.</p>
+                </div>
+            </div>
+          </div>
+        </a>
+        <p>Some stuff here for main content. Events will be shown first, then any upcoming bookings, or apointments..</p>
+      </div>
+    </div>
+    <footer>
+      <p>
+        &copy;   Copyright 2024 (Ahmed M. Hassan, Zoya Shaikh, & Akhmad Masri) SWEN.261.600 - <a href="mailto:amh8077@rit.edu">Email us</a><br>
+        Customer Support UAE <a href="tel:+971526198772">+971-52-619-8772</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</router-outlet>

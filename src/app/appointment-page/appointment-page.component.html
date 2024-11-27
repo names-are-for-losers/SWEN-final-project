@@ -1,0 +1,73 @@
+<router-outlet>
+  <img id="banner" src="banner.png" alt="banner">
+  <body>
+    <div class="background">
+      <div id="header" style="display: flex; text-align: center;">
+        <div id="header_logo">
+          <a routerLink="/home-page" aria-label="Go to Home">
+            <img src="favicon.ico" alt="Website icon" width="60px" />
+          </a>
+        </div>
+        <div style="flex: 15; overflow: hidden;">
+          <a routerLink="/login-page"><button class="sign_up_header_button">Sign up</button></a>
+          <a routerLink="/event-page"><button class="header_button">Events</button></a>
+          <a routerLink="/booking-page"><button class="header_button">Bookings</button></a>
+          <a routerLink="/appointment-page"><button class="header_button">Appointments</button></a>
+        </div>
+        <div id="user_icon" style="flex: 1; overflow: hidden;">
+          <a routerLink="/user-page">
+            <img src="default user icon.png" alt="Website icon" width="60px" />
+          </a>
+        </div>
+      </div>
+      <div id="content" class="frosted-glass">
+        <h1 style="text-align: center;">Appointments</h1>
+        <hr />
+
+        <!-- Appointment Form -->
+        <form (submit)="addAppointment($event)">
+          <div>
+            <label for="bookeeName">Bookee Name:</label>
+            <input type="text" id="bookeeName" [(ngModel)]="newAppointment.bookee_name" name="bookeeName" required />
+          </div>
+          <div>
+            <label for="location">Location:</label>
+            <input type="text" id="location" [(ngModel)]="newAppointment.location" name="location" required />
+          </div>
+          <div>
+            <label for="date">Date:</label>
+            <input type="date" id="date" [(ngModel)]="newAppointment.date" name="date" required />
+          </div>
+          <div>
+            <label for="time">Time:</label>
+            <input type="time" id="time" [(ngModel)]="newAppointment.time" name="time" required />
+          </div>
+          <button type="submit">Add Appointment</button>
+        </form>
+
+        <hr />
+
+        <!-- Appointments List -->
+        <h2>Existing Appointments</h2>
+        <p *ngIf="appointments.length === 0" style="text-align: center;">No appointments available.</p>
+        <ul *ngIf="appointments.length > 0">
+          <li *ngFor="let appointment of appointments">
+            <p><strong>Booker:</strong> {{ appointment.booker_email }}</p>
+            <p><strong>Bookee:</strong> {{ appointment.bookee_name }}</p>
+            <p><strong>Location:</strong> {{ appointment.location }}</p>
+            <p><strong>Date:</strong> {{ appointment.date }}</p>
+            <p><strong>Time:</strong> {{ appointment.time }}</p>
+          </li>
+        </ul>
+      </div>
+      <footer>
+        <p>
+          &copy; Copyright 2024 (Ahmed M. Hassan, Zoya Shaikh, & Akhmad Masri)
+          SWEN.261.600 - <a href="mailto:amh8077@rit.edu">Email us</a><br />
+          Customer Support UAE
+          <a href="tel:+971526198772">+971-52-619-8772</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</router-outlet>
