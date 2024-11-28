@@ -1,0 +1,86 @@
+<router-outlet>
+  <style>
+    .event {
+      background-color: #e1d4ff4e;
+      border-radius: 5px;
+      padding: 20px;
+      width: 100%;
+      margin-bottom: 15px;
+      transition: all 0.5s ease;
+      border-style: solid;
+      border-width: 0;
+      border-color: #BBADE4;
+    }
+
+    .event:hover {
+      background-color: #BBADE4;
+      transition: all 1.5s ease;
+    }
+
+    .event h2 {
+      transition: all 1s ease;
+    }
+
+    .event:hover h2 {
+      font-size: 50px;
+      transition: all 1s ease;
+    }
+
+  </style>
+
+  <img id="banner" src="banner_ver2.png" alt="banner">
+  <body>
+    <div class="background">
+      <div id="header" style="display: flex; text-align: center;">
+        <div id="header_logo">
+          <a routerLink="/home-page" aria-label="Go to Home">
+            <img src="favicon.ico" alt="Website icon" width="60px" />
+          </a>
+        </div>
+        <div style="flex: 15; overflow: hidden;">
+          <a routerLink="/login-page">
+            <button class="sign_up_header_button">Sign up</button>
+          </a>
+          <a routerLink="/event-page">
+            <button class="header_button">Events</button>
+          </a>
+          <a routerLink="/booking-page">
+            <button class="header_button">Bookings</button>
+          </a>
+          <a routerLink="/appointment-page">
+            <button class="header_button">Appointments</button>
+          </a>
+        </div>
+        <div id="user_icon" style="flex: 1; overflow: hidden;">
+          <a routerLink="/user-page">
+            <img src="default user icon.png" alt="Website icon" width="60px" />
+          </a>
+        </div>
+      </div>
+      <div id="content" class="frosted-glass">
+        <h1 style="text-align: center;">Events</h1>
+        <hr />
+        <div *ngIf="message">
+          <p>{{ message }}</p>
+        </div>
+        <ul *ngIf="events.length > 0">
+          <li *ngFor="let event of events" class="event">
+            <h2>{{ event.name }}</h2>
+            <p>{{ event.description }}</p>
+            <p><strong>Date:</strong> {{ event.date }}</p>
+            <p><strong>Time:</strong> {{ event.time }}</p>
+            <p><strong>Location:</strong> {{ event.location }}</p>
+          </li>
+        </ul>
+      </div>
+      <footer>
+        <p>
+          &copy; Copyright 2024 (Ahmed M. Hassan, Zoya Shaikh, & Akhmad Masri)
+          SWEN.261.600 - <a href="mailto:amh8077@rit.edu">Email us</a><br />
+          Customer Support UAE
+          <a href="tel:+971526198772">+971-52-619-8772</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</router-outlet>

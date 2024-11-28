@@ -1,0 +1,10 @@
+#header {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.event {
+  background-color: #ffffff51;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}

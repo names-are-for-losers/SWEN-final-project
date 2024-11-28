@@ -8,7 +8,7 @@ describe('BookingPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BookingPageComponent]
+      declarations: [BookingPageComponent]
     })
     .compileComponents();
 

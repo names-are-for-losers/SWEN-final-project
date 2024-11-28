@@ -1,5 +1,5 @@
 {
-  "name": "my-angular-app",
+  "name": "eventuro",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,10 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:my-angular-app": "node dist/my-angular-app/server/server.mjs"
+    "serve:ssr:myApplication": "node dist/my-application/server/server.mjs"
   },
   "private": true,
   "dependencies": {
+    "-": "^0.0.1",
     "@angular/animations": "^18.2.0",
     "@angular/common": "^18.2.0",
     "@angular/compiler": "^18.2.0",
@@ -20,18 +21,30 @@
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/platform-server": "^18.2.0",
     "@angular/router": "^18.2.0",
-    "@angular/ssr": "^18.2.12",
-    "express": "^4.18.2",
+    "@angular/ssr": "^18.2.2",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "bootstrap": "^5.3.3",
+    "connect-mysql": "^4.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "mongoose": "^8.8.2",
+    "mssql": "^11.0.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.11.4",
     "rxjs": "~7.8.0",
+    "save": "^2.9.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^18.2.12",
-    "@angular/cli": "^18.2.12",
+    "@angular-devkit/build-angular": "^18.2.2",
+    "@angular/cli": "^18.2.2",
     "@angular/compiler-cli": "^18.2.0",
     "@types/express": "^4.17.17",
     "@types/jasmine": "~5.1.0",
+    "@types/mssql": "^9.1.5",
     "@types/node": "^18.18.0",
     "jasmine-core": "~5.2.0",
     "karma": "~6.4.0",
@@ -40,5 +53,9 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.5.2"
-  }
+  },
+  "description": "booking website",
+  "main": "index.js",
+  "author": "ahmed",
+  "license": "ISC"
 }

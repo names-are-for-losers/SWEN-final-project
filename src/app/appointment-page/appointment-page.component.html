@@ -1,0 +1,117 @@
+<router-outlet>
+  <style>
+    .label_text {
+      margin-right: 10px;
+      min-width: 120px;
+    }
+    .submitbtn {
+      border-width: 0;
+      border-radius: 4px;
+      padding: 6px;
+      background-color: #e5d2ff67;
+      transition: all 0.5 ease;
+      color: white;
+      transition: all 1.5s ease;
+    }
+    .submitbtn:hover {
+      background-color: #eadaff;
+      color: black;
+      transition: all 0.5s ease;
+    }
+    .event {
+      background-color: #e1d4ff4e;
+      border-radius: 5px;
+      padding: 20px;
+      width: 100%;
+      margin-bottom: 15px;
+      transition: all 0.5s ease;
+      border-style: solid;
+      border-width: 15px 0 0 0;
+      border-color: #BBADE4;
+    }
+    .background {
+      background-color: #006eff00;
+    }
+  </style>
+  <img id="banner" src="banner_ver2.png" alt="banner">
+  <body>
+    <div class="background">
+      <div id="header" style="display: flex; text-align: center;">
+        <div id="header_logo">
+          <a routerLink="/home-page" aria-label="Go to Home">
+            <img src="favicon.ico" alt="Website icon" width="60px" />
+          </a>
+        </div>
+        <div style="flex: 15; overflow: hidden;">
+          <a routerLink="/login-page"><button class="sign_up_header_button">Sign up</button></a>
+          <a routerLink="/event-page"><button class="header_button">Events</button></a>
+          <a routerLink="/booking-page"><button class="header_button">Bookings</button></a>
+          <a routerLink="/appointment-page"><button class="header_button">Appointments</button></a>
+        </div>
+        <div id="user_icon" style="flex: 1; overflow: hidden;">
+          <a routerLink="/user-page">
+            <img src="default user icon.png" alt="Website icon" width="60px" />
+          </a>
+        </div>
+      </div>
+      <div id="content" class="frosted-glass">
+        <h1 style="text-align: center;">Appointments</h1>
+        <hr />
+
+        <!-- Appointment Form -->
+        <form (submit)="addAppointment($event)">
+          <div style="margin-bottom: 10px;">
+            <label for="bookeeName" class="label_text">Bookee Name:</label>
+            <select id="bookeeName" [(ngModel)]="newAppointment.bookee_name" name="bookeeName" required>
+              <option value="">Choose an option</option>
+              <option value="Dr.Khalil">Dr.Khalil</option>
+              <option value="Dr.Ali">Dr.Ali</option>
+              <option value="Mr.Mohannad Samman">Mr.Mohannad Samman</option>
+              <option value="Dr.Huda">Dr.Huda</option>
+              <option value="Dr.Saeed Hani">Dr.Saeed Hani</option>
+              <option value="Dr.Khalid">Dr.Khalid - vice president</option>
+              <option value="Ms.Toka">Ms.Toka</option>
+              <option value="Dr.Omar Abdulatif">Dr.Omar Abdulatif</option>
+            </select>
+          </div>
+          <div style="margin-bottom: 10px;">
+            <label for="location" class="label_text">Meeting subject:</label>
+            <input type="text" id="location" [(ngModel)]="newAppointment.location" name="location" required />
+          </div>
+          <div style="margin-bottom: 10px;">
+            <label for="date" class="label_text">Date:</label>
+            <input type="date" id="date" [(ngModel)]="newAppointment.date" name="date" required />
+          </div>
+          <div style="margin-bottom: 10px;">
+            <label for="time" class="label_text">Time:</label>
+            <input type="time" id="time" [(ngModel)]="newAppointment.time" name="time" required />
+          </div><br>
+          <button type="submit" class="submitbtn">Add Appointment</button>
+        </form>
+
+        <hr />
+
+        <!-- Appointments List -->
+        <h2>Existing Appointments</h2>
+        <p *ngIf="appointments.length === 0" style="text-align: center;">No appointments available.</p>
+        <ul *ngIf="appointments.length > 0">
+          <li *ngFor="let appointment of appointments" class="event">
+            <p><strong>Booker's email:</strong> {{ appointment.booker_email }}</p>
+            <p><strong>Bookee:</strong> {{ appointment.bookee_name }}</p>
+            <p><strong>Meeting reason:</strong> {{ appointment.location }}</p>
+            <p><strong>Date:</strong> {{ appointment.date }}</p>
+            <p><strong>Time:</strong> {{ appointment.time }}</p>
+          </li>
+        </ul>
+      </div>
+      <footer>
+        <p>
+          &copy; Copyright 2024 (Ahmed M. Hassan, Zoya Shaikh, & Akhmad Masri)
+          SWEN.261.600 - <a href="mailto:amh8077@rit.edu">Email us</a><br />
+          Customer Support UAE
+          <a href="tel:+971526198772">+971-52-619-8772</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</router-outlet>

@@ -1,128 +1,216 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const mysql = require('mysql2');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const bcrypt = require('bcrypt');
-const cors = require('cors');  // Import CORS
+const session = require('express-session');
+const MySQLStore = require('express-mysql-session')(session);
 
 const app = express();
-app.use(express.json()); // Middleware to parse JSON data
 app.use(bodyParser.json());
-
-app.use(cors());
+app.use(cors({ credentials: true, origin: 'http://localhost:4200' }));
 
 // MySQL connection
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '@Hmed2004',
-    database: 'swen_mysql',
+  host: 'localhost',
+  user: 'root',
+  password: '@Hmed2004', // Replace with your MySQL password
+  database: 'swen_db',
 });
 
+// Establish MySQL connection
 db.connect((err) => {
-    if (err) throw err;
-    console.log('Connected to MySQL database.');
+  if (err) {
+    console.error('Error connecting to MySQL:', err);
+  } else {
+    console.log('Connected to MySQL');
+  }
 });
 
-app.get('/api/users', (req, res) => {
-  const query = 'SELECT id, first_name, email FROM user_info';
-  connection.query(query, (error, results) => {
-    if (error) {
-      console.error('Error fetching users:', error);
-      res.status(500).send('Error fetching users.');
-    } else {
-      res.json(results);
-    }
-  });
+// Configure session middleware
+const sessionStore = new MySQLStore({
+  host: 'localhost',
+  user: 'root',
+  password: '@Hmed2004',
+  database: 'swen_db',
 });
 
-app.get('/user_info', (req, res) => {
-  const query = 'SELECT * FROM user_info'; // Get all users from the user_info table
-  db.query(query, (err, result) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).json({ error: 'Error retrieving user data.' });
-    }
-    res.status(200).json(result); // Send the result of the query as a response
-  });
+app.use(
+  session({
+    key: 'user_session',
+    secret: 'supersecretkey', // Replace with a strong secret key
+    store: sessionStore,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24, // 1 day
+      httpOnly: true,
+      secure: false, // Use true if using HTTPS
+    },
+  })
+);
+
+// Sign-up API route
+app.post('/signup', async (req, res) => {
+  const { first_name, last_name, email, password } = req.body;
+  if (!first_name || !last_name || !email || !password) {
+    return res.status(400).json({ message: 'All fields are required' });
+  }
+
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const query = 'INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)';
+    db.query(query, [first_name, last_name, email, hashedPassword], (err, result) => {
+      if (err) {
+        console.error('Database error:', err);
+        if (err.code === 'ER_DUP_ENTRY') {
+          return res.status(400).json({ message: 'Email is already registered' });
+        }
+        return res.status(500).json({ message: 'Database error' });
+      }
+      res.status(201).json({ message: 'User registered successfully' });
+    });
+  } catch (error) {
+    console.error('Error hashing password:', error);
+    res.status(500).json({ message: 'Error processing the request' });
+  }
 });
 
-app.get('/events', (req, res) => {
-  const query = 'SELECT * FROM events'; // Get all users from the user_info table
-  db.query(query, (err, result) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).json({ error: 'Error retrieving user data.' });
-    }
-    res.status(200).json(result); // Send the result of the query as a response
-  });
-});
-
-app.get('/appointments', (req, res) => {
-  const query = 'SELECT * FROM appointments'; // Get all users from the user_info table
-  db.query(query, (err, result) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).json({ error: 'Error retrieving user data.' });
-    }
-    res.status(200).json(result); // Send the result of the query as a response
-  });
-});
-
-app.get('/room_bookings', (req, res) => {
-  const query = 'SELECT * FROM room_bookings'; // Get all users from the user_info table
-  db.query(query, (err, result) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).json({ error: 'Error retrieving user data.' });
-    }
-    res.status(200).json(result); // Send the result of the query as a response
-  });
-});
-
-app.post('/signup', (req, res) => {
-  const { id, first_name, last_name, email, password } = req.body;
-
-  // SQL query to insert data into the 'user_info' table
-  const query = `
-    INSERT INTO user_info (id, first_name, last_name, email, password)
-    VALUES (?, ?, ?, ?, ?);
-  `;
-
-  // Execute the query
-  connection.query(query, [id, first_name, last_name, email, password], (err, result) => {
-    if (err) {
-      console.error('Error inserting data:', err);
-      return res.status(500).json({ message: 'Error inserting user data into database.' });
-    }
-
-    res.status(201).json({ message: 'User created successfully.' });
-  });
-});
-
-app.post('/login', (req, res) => {
+// Login API route
+app.post('/login', async (req, res) => {
   const { email, password } = req.body;
-  const query = 'SELECT * FROM user_info WHERE email = ? AND password = ?';
 
-  db.query(query, [email, password], (err, result) => {
+  if (!email || !password) {
+    return res.status(400).json({ message: 'Email and password are required' });
+  }
+
+  try {
+    db.query('SELECT * FROM users WHERE email = ?', [email], async (err, results) => {
+      if (err) {
+        return res.status(500).json({ message: 'Database error' });
+      }
+      if (results.length === 0) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+
+      const user = results[0];
+      const match = await bcrypt.compare(password, user.password);
+      if (!match) {
+        return res.status(401).json({ message: 'Invalid credentials' });
+      }
+
+      req.session.user = { email: user.email }; // Save user email in session
+      return res.status(200).json({ message: 'Login successful', user: { email: user.email } });
+    });
+  } catch (error) {
+    return res.status(500).json({ message: 'Server error' });
+  }
+});
+
+
+// Logout API route
+app.post('/logout', (req, res) => {
+  req.session.destroy((err) => {
     if (err) {
-      console.error('Error logging in:', err);
-      return res.status(500).json({ message: 'Error logging in.' });
+      return res.status(500).json({ message: 'Failed to logout' });
     }
-
-    if (result.length > 0) {
-      // User found, successful login
-      return res.status(200).json({ message: 'Login successful', user: result[0] });
-    } else {
-      // User not found or incorrect password
-      return res.status(401).json({ message: 'Invalid credentials' });
-    }
+    res.clearCookie('user_session');
+    res.status(200).json({ message: 'Logout successful' });
   });
 });
 
-app.get('/', (req, res) => {
-    res.send('Hello, World! Server is up and running.');
+// Middleware to protect routes
+const isAuthenticated = (req, res, next) => {
+  if (req.session.user) {
+    next();
+  } else {
+    res.status(401).json({ message: 'Unauthorized. Please log in.' });
+  }
+};
+
+// Fetch events API route
+app.get('/api/events', (req, res) => {
+  const query = 'SELECT id, name, description, date, time, location FROM events';
+  db.query(query, (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: 'Database error' });
+    }
+    res.status(200).json({ events: results });
+  });
 });
 
-app.listen(3000, () => {
-    console.log('Server running on http://localhost:3000');
+// Fetch all bookings
+app.get('/api/bookings', isAuthenticated, (req, res) => {
+  const query = 'SELECT * FROM bookings WHERE booker_email = ?';
+  db.query(query, [req.session.user.email], (err, results) => {
+    if (err) {
+      return res.status(500).json({ message: 'Database error' });
+    }
+    res.status(200).json({ bookings: results });
+  });
+});
+
+// Add a new booking
+app.post('/api/bookings', (req, res) => {
+  const { first_name, last_name, location, date, time } = req.body;
+  const booker_email = req.session?.user?.email; // Get email from session
+
+  if (!booker_email || !first_name || !last_name || !location || !date || !time) {
+    return res.status(400).json({ message: 'All fields are required' });
+  }
+
+  const insertBookingQuery = `
+    INSERT INTO bookings (booker_email, first_name, last_name, location, date, time)
+    VALUES (?, ?, ?, ?, ?, ?)`;
+  db.query(
+    insertBookingQuery,
+    [booker_email, first_name, last_name, location, date, time],
+    (err, result) => {
+      if (err) {
+        console.error('Database error:', err);
+        return res.status(500).json({ message: 'Database error' });
+      }
+      res.status(201).json({ message: 'Booking added successfully', bookingId: result.insertId });
+    }
+  );
+});
+
+// Fetch all appointments
+app.get('/api/appointments', isAuthenticated, (req, res) => {
+  const query = 'SELECT * FROM appointments WHERE booker_email = ?';
+  db.query(query, [req.session.user.email], (err, results) => {
+    if (err) {
+      return res.status(500).json({ message: 'Database error' });
+    }
+    res.status(200).json({ appointments: results });
+  });
+});
+
+// Add a new appointment
+app.post('/api/appointments', (req, res) => {
+  const { bookee_name, location, date, time } = req.body;
+  const booker_email = req.session?.user?.email; // Get email from session
+
+  if (!booker_email || !bookee_name || !location || !date || !time) {
+    return res.status(400).json({ message: 'All fields are required.' });
+  }
+
+  const insertQuery = `
+    INSERT INTO appointments (booker_email, bookee_name, location, date, time)
+    VALUES (?, ?, ?, ?, ?)
+  `;
+  db.query(insertQuery, [booker_email, bookee_name, location, date, time], (err, results) => {
+    if (err) {
+      console.error('Database error:', err);
+      return res.status(500).json({ message: 'Failed to create appointment.' });
+    }
+    res.status(201).json({ message: 'Appointment created successfully.', appointmentId: results.insertId });
+  });
+});
+
+
+// Start the server
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Backend server running on http://localhost:${PORT}`);
 });

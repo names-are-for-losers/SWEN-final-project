@@ -1,74 +1,126 @@
-<img id="banner" src="banner.png" alt="banner">
-<body>
-  <div class="background">
-    <div id="header" style="display: flex; text-align: center;">
-      <div id="header_logo">
-        <a routerLink="/home-page" aria-label="Go to Home"><img src="favicon.ico" alt="Website icon" width="60px"></a>
-      </div>
-      <div style="flex: 15; overflow: hidden;">
-        <a routerLink="/login-page"><button class="sign_up_header_button">Sign up</button></a>
-        <a routerLink="/event-page"><button class="header_button">Events</button></a>
-        <a routerLink="/booking-page"><button class="header_button">Bookings</button></a>
-        <a routerLink="/appointment-page"><button class="header_button">Appointments</button></a>
-      </div>
-      <div id="user_icon" style="flex: 1; overflow: hidden;">
-        <a routerLink="/user-page"><img src="default user icon.png" alt="Website icon" width="60px"></a>
-      </div>
-    </div>
-
-    <div>
-      <div id="side_panel">
-        <div class="frosted-glass-strong side_panel_top">
-          Side panel
+<router-outlet>
+  <style>
+    .label_text {
+      margin-right: 10px;
+      min-width: 100px;
+    }
+    .submitbtn {
+      border-width: 0;
+      border-radius: 4px;
+      padding: 6px;
+      background-color: #e5d2ff67;
+      transition: all 0.5 ease;
+      color: white;
+      transition: all 1.5s ease;
+    }
+    .submitbtn:hover {
+      background-color: #eadaff;
+      color: black;
+      transition: all 0.5s ease;
+    }
+    .event {
+      background-color: #e1d4ff4e;
+      border-radius: 5px;
+      padding: 20px;
+      width: 100%;
+      margin-bottom: 15px;
+      transition: all 0.5s ease;
+      border-style: solid;
+      border-width: 15px 0 0 0;
+      border-color: #BBADE4;
+    }
+    .background {
+      background-color: #257cee00;
+    }
+  </style>
+  <img id="banner" src="banner_ver2.png" alt="banner">
+  <body>
+    <div class="background">
+      <div id="header" style="display: flex; text-align: center;">
+        <div id="header_logo">
+          <a routerLink="/home-page" aria-label="Go to Home">
+            <img src="favicon.ico" alt="Website icon" width="60px" />
+          </a>
         </div>
-        <div class="frosted-glass side_panel_bottom">
-          Something to be said in the side panel...
+        <div style="flex: 15; overflow: hidden;">
+          <a routerLink="/login-page"><button class="sign_up_header_button">Sign up</button></a>
+          <a routerLink="/event-page"><button class="header_button">Events</button></a>
+          <a routerLink="/booking-page"><button class="header_button">Bookings</button></a>
+          <a routerLink="/appointment-page"><button class="header_button">Appointments</button></a>
+        </div>
+        <div id="user_icon" style="flex: 1; overflow: hidden;">
+          <a routerLink="/user-page">
+            <img src="default user icon.png" alt="Website icon" width="60px" />
+          </a>
         </div>
       </div>
-
-
-      
       <div id="content" class="frosted-glass">
-        <h1 style="text-align: center;">Bookings</h1><hr>
-        
-        <div id="event-list">
-          <h2>Book your event Events</h2>
-          <ul id="event-list-ul">
-            <!-- Event items will be populated here -->
-          </ul>
-        </div>
+        <h1 style="text-align: center;">Bookings</h1>
+        <hr />
+        <!-- Booking Form -->
+        <form (submit)="addBooking($event)">
+          <div style="margin-bottom: 10px;">
+            <label for="firstName" class="label_text">First Name:</label>
+            <input placeholder="Enter your first name" type="text" id="firstName" [(ngModel)]="newBooking.first_name" name="firstName" required />
+          </div>
+          <div style="margin-bottom: 10px;">
+            <label for="lastName" class="label_text">Last Name:</label>
+            <input placeholder="Enter your last name" f type="text" id="lastName" [(ngModel)]="newBooking.last_name" name="lastName" required />
+          </div>
+          <div style="margin-bottom: 10px;">
+            <label for="location" class="label_text">Location:</label>
+            <select id="location" [(ngModel)]="newBooking.location" name="location" required>
+              <option value="">Select a location</option>
+              <option value="Room G204">Room G204</option>
+              <option value="Conference Hall">Conference Hall</option>
+              <option value="Lab B203">Lab B203</option>
+              <option value="Auditorium">Auditorium</option>
+              <option value="Room B003">Room B003</option>
+              <option value="Room B004">Room B004</option>
+              <option value="Basketball court 1">Basketball court 1</option>
+              <option value="Basketball court 2">Basketball court 2</option>
+              <option value="Squash room 1">Squash room 1</option>
+              <option value="Squash room 2">Squash room 2</option>
+              <option value="Library room 01">Library room 01</option>
+              <option value="Library room 02">Library room 02</option>
+              <option value="Library room 03">Library room 03</option>
+              <option value="Library room 04">Library room 04</option>
+              <option value="Library room 05">Library room 05</option>
+            </select>
+          </div>
+          <div style="margin-bottom: 10px;">
+            <label for="date" class="label_text">Date:</label>
+            <input type="date" id="date" [(ngModel)]="newBooking.date" name="date" required />
+          </div>
+          <div style="margin-bottom: 10px;">
+            <label for="time" class="label_text">Time:</label>
+            <input type="time" id="time" [(ngModel)]="newBooking.time" name="time" required />
+          </div><br>
+          <button type="submit" class="submitbtn">Add Booking</button>
+        </form>
 
-        <div id="booking-form">
-          <h3>Book an Event</h3>
-          <form id="booking-form" action="javascript:void(0);">
-            <label for="event">Choose Event:</label>
-            <select id="event-select">
-              <option value="1">Basketball Court</option>
-              <option value="2">Football Court</option>
-              <option value="3">Squash Court</option>
-            </select><br><br>
+        <hr />
 
-            <label for="booking-date">Booking Date:</label>
-            <input type="date" id="booking-date" required><br><br>
-
-            <label for="user-name">Your Name:</label>
-            <input type="text" id="user-name" placeholder="Enter your name" required><br><br>
-
-            <button type="submit" id="book-button">Book Now</button>
-          </form>
-        </div>
-        
-        <div id="booking-result">
-          <!-- Confirmation or error message after booking -->
-        </div>
+        <!-- Booking List -->
+        <h2>Existing Bookings</h2>
+        <ul>
+          <li *ngFor="let booking of bookings" class="event">
+            <p><strong>Name:</strong> {{ booking.first_name }} {{ booking.last_name }}</p>
+            <p><strong>Email:</strong> {{ booking.booker_email }}</p>
+            <p><strong>Location:</strong> {{ booking.location }}</p>
+            <p><strong>Date:</strong> {{ booking.date }}</p>
+            <p><strong>Time:</strong> {{ booking.time }}</p>
+          </li>
+        </ul>
       </div>
+      <footer>
+        <p>
+          &copy; Copyright 2024 (Ahmed M. Hassan, Zoya Shaikh, & Akhmad Masri)
+          SWEN.261.600 - <a href="mailto:amh8077@rit.edu">Email us</a><br />
+          Customer Support UAE
+          <a href="tel:+971526198772">+971-52-619-8772</a>
+        </p>
+      </footer>
     </div>
-
-    <footer>
-      <p>
-        &copy;  Copyright 2024 (Ahmed M. Hassan, Zoya Shaikh, & Akhmad Masri) SWEN.261.600 - <a href="mailto:am9569@rit.edu">Email us</a><br>
-        Customer Support UAE <a href="tel:+971526198772">+971-52-619-8772</a>
-      </p>
-    </footer>
-  </div>
-</body>
+  </body>
+</router-outlet>

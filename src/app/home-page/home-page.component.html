@@ -1,0 +1,58 @@
+<router-outlet>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="Ahmed M. Hassan" content="booking, events, mangos, seats, and appointments">
+  <meta charset="utf-8">
+</head>
+
+<style>
+    #header {
+    width: 100%;
+    margin-bottom: 100px;
+  }
+
+  #content {
+    padding: 50px 2.5% 60px 2.5%;
+    font-size: 16px;
+    width: 40%;
+    float: left;
+    min-height: 250px;
+    color: #5E55DF;
+    text-align: center;
+    margin: 50px 30% 200px 30%;
+  }
+
+  .background {
+    background-color: #257cee00;
+  }
+</style>
+
+<img id="banner" src="banner_ver3.png" alt="banner">
+<body>
+  <div class="background">
+    <div id="header" style="display: flex; text-align: center;">
+      <div id="header_logo"><a routerLink="/home-page" aria-label="Go to Home"><img src="favicon.ico" alt="Website icon" width="60px"></a></div>
+      <div style="flex: 15; overflow: hidden;">
+        <a routerLink="/login-page"><button class="sign_up_header_button">Sign up</button></a>
+        <a routerLink="/event-page"><button class="header_button">Events</button></a>
+        <a routerLink = "/booking-page"><button class="header_button">Bookings</button></a>
+        <a routerLink = "/appointment-page"><button class="header_button">Appointments</button></a>
+      </div>
+      <div id="user_icon" style="flex: 1; overflow: hidden;"><a routerLink = "/user-page"><img src="default user icon.png" alt="Website icon" width="60px"></a></div>
+    </div>
+    <div>
+      <div id="content" class="frosted-glass" style="background-color: rgba(255, 255, 255, 0.233); box-shadow: none;">
+        <span style="font-size: 75px; font-family:'monospace'; margin-bottom: 0;">Eventuro</span><br>
+        <span style="font-size: 15px; color: #5e55df8b; margin-top: 0;"><i>Simplify event discovery and bookings with seemless effort</i></span>
+      </div>
+    </div>
+    <footer>
+      <p>
+        &copy;   Copyright 2024 (Ahmed M. Hassan, Zoya Shaikh, & Akhmad Masri) SWEN.261.600 - <a href="mailto:amh8077@rit.edu">Email us</a><br>
+        Customer Support UAE <a href="tel:+971526198772">+971-52-619-8772</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</router-outlet>
